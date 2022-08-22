@@ -4,14 +4,15 @@ require('hbs');
 const path = require('path');
 const port = 8000;
 
-
-const static_path = path.join(__dirname , "../public");
-
 // builtin middleware
-// app.use(express.static(static_path));
+const static_path = path.join(__dirname , "../public");
+const templatePath = path.join(__dirname , "../templates")
+
 
 //to set the view engine(i.e, view engine hbs)
 app.set("view engine" ,"hbs");
+// app.use(express.static(static_path));
+app.set("views" , templatePath);
 
 
 
