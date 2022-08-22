@@ -16,7 +16,58 @@ app.get('/contact' , (req , res)=>{
 });
 
 app.get('/temp' , (req , res)=>{
-    res.send('welcome to my temp page');
+    res.send('welcome to my page');
+});
+
+app.get('/json' , (req , res)=>{
+    res.send(
+        {
+            id : 1,
+            name:"vinod"
+        },
+    );
+});
+
+app.get('/arrJson' , (req , res)=>{
+    res.send([
+        {
+            id : 1,
+            name:"vinod"
+        },
+        {
+            id : 2,
+            name:"rohan"
+        },
+        {
+            id : 3,
+            name:"pratap"
+        },
+        {
+            id:null,
+            name:null
+        }
+    ]);
+});
+
+app.get('/resjson' , (req , res)=>{
+    res.json([   //sending data using res.json
+        {
+            id : 1,
+            name:"vinod"
+        },
+        {
+            id : 2,
+            name:"rohan"
+        },
+        {
+            id : 3,
+            name:"pratap"
+        },
+        {
+            id:null,
+            name:null
+        }
+    ]);
 });
 
 
