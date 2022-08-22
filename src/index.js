@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require('hbs');
 const path = require('path');
 const port = 8000;
 
@@ -7,11 +8,18 @@ const port = 8000;
 const static_path = path.join(__dirname , "../public");
 
 // builtin middleware
-app.use(express.static(static_path));
+// app.use(express.static(static_path));
+
+//to set the view engine(i.e, view engine hbs)
+app.set("view engine" ,"hbs");
 
 
 
 //routes
+app.get("/" , (req , res)=>{
+    res.render("home");
+});
+
 app.get('' , (req , res)=>{
     res.send('welcome to my home page');
 });
