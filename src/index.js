@@ -1,18 +1,20 @@
 const express = require('express');
 const app = express();
-require('hbs');
+const hbs = require('hbs');
 const path = require('path');
 const port = 8000;
 
 // builtin middleware
 const static_path = path.join(__dirname , "../public");
-const templatePath = path.join(__dirname , "../templates")
+const templatePath = path.join(__dirname , "../templates/views")
+const partialsPath = path.join(__dirname , "../templates/partials")
 
 
 //to set the view engine(i.e, view engine hbs)
 app.set("view engine" ,"hbs");
 // app.use(express.static(static_path));
-app.set("views" , templatePath);
+app.set("views" , templatePath); //telling the express that name of views is changed to templets and you have to look into this instead of looking for views
+ hbs.registerPartial(partialsPath);
 
 
 
